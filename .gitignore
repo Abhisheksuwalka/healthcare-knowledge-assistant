@@ -1,0 +1,417 @@
+# Environment
+.env
+.env.local
+.env.*.local
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Vector Database
+vectordb/chroma_db/*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node (for React frontend)
+node_modules/
+npm-debug.log
+dist/
+
+
+backup/
+frontend/build/
+
+
+# ===================================
+# Healthcare Knowledge Assistant
+# .gitignore
+# ===================================
+
+# ============= Python =============
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.env.local
+.env.*.local
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# ============= IDEs =============
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============= Node.js (Frontend) =============
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Testing
+coverage/
+
+# Production
+build/
+dist/
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache
+.npm
+.eslintcache
+.stylelintcache
+.parcel-cache
+
+# Next.js
+.next/
+out/
+
+# Nuxt.js
+.nuxt/
+dist/
+
+# Gatsby
+.cache/
+public/
+
+# ============= Vector Database =============
+# ChromaDB
+vectordb/
+*.sqlite3
+*.sqlite
+chroma_db/
+*.bin
+
+# ============= Data Files =============
+# Processed data
+data/processed/*
+data/raw/*
+!data/processed/.gitkeep
+!data/raw/.gitkeep
+
+# Large data files
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+
+# Keep sample docs
+!data/sample_docs/*.txt
+
+# ============= Test Results =============
+tests/results/*.json
+tests/results/*.html
+tests/results/*.xml
+!tests/results/.gitkeep
+
+# ============= Backup Files =============
+backup/
+*.bak
+*.backup
+*.old
+*.orig
+*-backup.*
+
+# ============= Logs =============
+logs/
+*.log
+*.log.*
+
+# ============= OS Files =============
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============= Docker =============
+*.tar
+*.tar.gz
+docker-compose.override.yml
+
+# ============= Secrets & API Keys =============
+# Environment files with secrets
+.env
+.env.production
+.env.staging
+.env.development
+*.pem
+*.key
+*.cert
+secrets/
+credentials/
+api_keys.txt
+
+# ============= Project Specific =============
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Editor configs (keep these)
+!.editorconfig
+!.prettierrc
+!.eslintrc
+
+# Documentation build
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Experiment notebooks outputs
+notebooks/*.html
+notebooks/*.pdf
+
+# Model weights (if you add any)
+*.h5
+*.pkl
+*.pickle
+*.joblib
+*.model
+*.pth
+*.pt
+*.onnx
+
+# Frontend specific
+frontend/my-medical-chatbot/build/
+frontend/my-medical-chatbot/.env
+
+# Keep important files
+!.gitignore
+!.gitkeep
+!README.md
+!requirements.txt
+!.env.example

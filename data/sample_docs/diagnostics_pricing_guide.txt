@@ -1,0 +1,228 @@
+DIAGNOSTIC SERVICES PRICING GUIDE
+Effective Date: November 2024
+IMPORTANT NOTE: Prices listed are self-pay rates (without insurance). Insurance coverage and out-of-pocket
+---
+## 1. LABORATORY TESTS
+### 1.1 Blood Tests - Basic
+| Test | Code | Price |
+|------|------|-------|
+| Complete Blood Count (CBC) | LAB-001 | $45 |
+| Comprehensive Metabolic Panel (CMP) | LAB-002 | $65 |
+| Basic Metabolic Panel (BMP) | LAB-003 | $50 |
+| Lipid Panel (Cholesterol) | LAB-004 | $55 |
+| Hemoglobin A1C (Diabetes) | LAB-005 | $40 |
+| Thyroid Panel (TSH, T3, T4) | LAB-006 | $85 |
+| Vitamin D Test | LAB-007 | $70 |
+| Vitamin B12 Test | LAB-008 | $60 |
+### 1.2 Blood Tests - Advanced
+| Test | Code | Price |
+|------|------|-------|
+| Liver Function Panel | LAB-101 | $75 |
+| Kidney Function Panel | LAB-102 | $70 |
+| Cardiac Enzymes (Troponin) | LAB-103 | $95 |
+| Coagulation Panel (PT/INR) | LAB-104 | $60 |
+| C-Reactive Protein (CRP) | LAB-105 | $55 |
+| Prostate-Specific Antigen (PSA) | LAB-106 | $80 |
+| Cancer Marker Panel | LAB-107 | $250 |
+### 1.3 Infectious Disease Testing
+| Test | Code | Price |
+|------|------|-------|
+| COVID-19 PCR Test | LAB-201 | $125 |
+| COVID-19 Rapid Antigen | LAB-202 | $50 |
+| Flu A/B Rapid Test | LAB-203 | $55 |
+| Strep Throat Test | LAB-204 | $45 |
+| Hepatitis Panel (A, B, C) | LAB-205 | $180 |
+| HIV Test | LAB-206 | $65 |
+| Sexually Transmitted Infection (STI) Panel | LAB-207 | $200 |
+| Tuberculosis (TB) Test | LAB-208 | $40 |
+| Lyme Disease Test | LAB-209 | $90 |
+### 1.4 Specialty Tests
+| Test | Code | Price |
+|------|------|-------|
+| Allergy Panel (Basic) | LAB-301 | $150 |
+| Allergy Panel (Comprehensive) | LAB-302 | $350 |
+| Celiac Disease Screening | LAB-303 | $120 |
+| Pregnancy Test (Blood) | LAB-304 | $40 |
+| Prenatal Panel | LAB-305 | $200 |
+| Genetic Testing (varies by test) | LAB-306 | $300-$2,000 |
+| Hormone Panel (Comprehensive) | LAB-307 | $250 |
+| Drug Screening (10-Panel) | LAB-308 | $85 |
+---
+## 2. IMAGING SERVICES
+### 2.1 X-Ray
+| Procedure | Code | Price |
+|-----------|------|-------|
+| Chest X-Ray (1 view) | IMG-001 | $150 |
+| Chest X-Ray (2 views) | IMG-002 | $200 |
+| Abdomen X-Ray | IMG-003 | $180 |
+| Spine X-Ray (Cervical) | IMG-004 | $200 |
+| Spine X-Ray (Lumbar) | IMG-005 | $210 |
+| Hand/Wrist X-Ray | IMG-006 | $120 |
+| Foot/Ankle X-Ray | IMG-007 | $120 |
+| Hip X-Ray | IMG-008 | $180 |
+| Knee X-Ray | IMG-009 | $150 |
+| Shoulder X-Ray | IMG-010 | $160 |
+| Dental X-Ray (Full Mouth) | IMG-011 | $250 |
+| Mammogram (Screening) | IMG-012 | $250 |
+| Mammogram (Diagnostic) | IMG-013 | $350 |
+### 2.2 Ultrasound
+| Procedure | Code | Price |
+|-----------|------|-------|
+| Abdominal Ultrasound | IMG-101 | $350 |
+| Pelvic Ultrasound | IMG-102 | $300 |
+| Obstetric Ultrasound (1st Trimester) | IMG-103 | $250 |
+| Obstetric Ultrasound (2nd/3rd Trimester) | IMG-104 | $300 |
+| Thyroid Ultrasound | IMG-105 | $280 |
+| Breast Ultrasound | IMG-106 | $320 |
+| Carotid Artery Ultrasound | IMG-107 | $400 |
+| Echocardiogram (Heart) | IMG-108 | $500 |
+| Renal (Kidney) Ultrasound | IMG-109 | $330 |
+| Scrotal Ultrasound | IMG-110 | $290 |
+### 2.3 CT Scan (Computed Tomography)
+| Procedure | Code | Price |
+|-----------|------|-------|
+| CT Head (without contrast) | IMG-201 | $800 |
+| CT Head (with contrast) | IMG-202 | $1,200 |
+| CT Chest (without contrast) | IMG-203 | $900 |
+| CT Chest (with contrast) | IMG-204 | $1,400 |
+| CT Abdomen/Pelvis (without contrast) | IMG-205 | $1,000 |
+| CT Abdomen/Pelvis (with contrast) | IMG-206 | $1,600 |
+| CT Spine (Cervical) | IMG-207 | $850 |
+| CT Spine (Lumbar) | IMG-208 | $850 |
+| CT Angiography (CTA) | IMG-209 | $1,800 |
+| CT Cardiac (Heart) | IMG-210 | $2,000 |
+### 2.4 MRI (Magnetic Resonance Imaging)
+| Procedure | Code | Price |
+|-----------|------|-------|
+| MRI Brain (without contrast) | IMG-301 | $1,500 |
+| MRI Brain (with contrast) | IMG-302 | $2,200 |
+| MRI Spine (Cervical) | IMG-303 | $1,600 |
+| MRI Spine (Lumbar) | IMG-304 | $1,600 |
+| MRI Knee | IMG-305 | $1,400 |
+| MRI Shoulder | IMG-306 | $1,400 |
+| MRI Abdomen | IMG-307 | $1,800 |
+| MRI Pelvis | IMG-308 | $1,700 |
+| MRI Angiography (MRA) | IMG-309 | $2,500 |
+| Breast MRI | IMG-310 | $2,000 |
+### 2.5 Special Imaging
+| Procedure | Code | Price |
+|-----------|------|-------|
+| Bone Density Scan (DEXA) | IMG-401 | $250 |
+| PET Scan | IMG-402 | $3,500 |
+| Nuclear Medicine Scan | IMG-403 | $1,200-$2,500 |
+| Fluoroscopy | IMG-404 | $400-$800 |
+| Barium Swallow | IMG-405 | $500 |
+---
+## 3. CARDIAC DIAGNOSTICS
+| Test | Code | Price |
+|------|------|-------|
+| Electrocardiogram (EKG/ECG) | CARD-001 | $150 |
+| Stress Test (Treadmill) | CARD-002 | $500 |
+| Stress Echocardiogram | CARD-003 | $800 |
+| Holter Monitor (24-hour) | CARD-004 | $400 |
+| Event Monitor (30-day) | CARD-005 | $600 |
+| Cardiac Catheterization | CARD-006 | $5,000-$10,000 |
+| Echocardiogram (Transthoracic) | CARD-007 | $500 |
+| Echocardiogram (Transesophageal) | CARD-008 | $1,500 |
+---
+## 4. PULMONARY DIAGNOSTICS
+| Test | Code | Price |
+|------|------|-------|
+| Pulmonary Function Test (Spirometry) | PULM-001 | $200 |
+| Peak Flow Measurement | PULM-002 | $50 |
+| Chest X-Ray | PULM-003 | $150 |
+| Arterial Blood Gas (ABG) | PULM-004 | $100 |
+| Sleep Study (Polysomnography) | PULM-005 | $1,500 |
+| Home Sleep Apnea Test | PULM-006 | $400 |
+---
+## 5. GASTROINTESTINAL DIAGNOSTICS
+| Test | Code | Price |
+|------|------|-------|
+| Upper Endoscopy (EGD) | GI-001 | $1,800 |
+| Colonoscopy (Screening) | GI-002 | $2,500 |
+| Colonoscopy (Diagnostic) | GI-003 | $3,000 |
+| Flexible Sigmoidoscopy | GI-004 | $1,200 |
+| H. Pylori Breath Test | GI-005 | $150 |
+| Fecal Occult Blood Test | GI-006 | $40 |
+| Liver Biopsy | GI-007 | $2,000 |
+---
+## 6. WOMEN'S HEALTH DIAGNOSTICS
+| Test | Code | Price |
+|------|------|-------|
+| Pap Smear | WH-001 | $100 |
+| Pelvic Ultrasound | WH-002 | $300 |
+| Mammogram (Screening) | WH-003 | $250 |
+| Mammogram (Diagnostic) | WH-004 | $350 |
+| Bone Density Scan (DEXA) | WH-005 | $250 |
+| Prenatal Ultrasound | WH-006 | $250-$300 |
+| Non-Stress Test (NST) | WH-007 | $200 |
+| Amniocentesis | WH-008 | $1,500 |
+| Breast Biopsy | WH-009 | $1,200 |
+---
+## 7. UROLOGY DIAGNOSTICS
+| Test | Code | Price |
+|------|------|-------|
+| Urinalysis | URO-001 | $30 |
+| Urine Culture | URO-002 | $60 |
+| PSA Test (Blood) | URO-003 | $80 |
+| Cystoscopy | URO-004 | $1,500 |
+| Kidney Ultrasound | URO-005 | $330 |
+| Prostate Biopsy | URO-006 | $2,000 |
+---
+## 8. NEUROLOGICAL DIAGNOSTICS
+| Test | Code | Price |
+|------|------|-------|
+| EEG (Electroencephalogram) | NEURO-001 | $500 |
+| EMG (Electromyography) | NEURO-002 | $600 |
+| Nerve Conduction Study | NEURO-003 | $550 |
+| MRI Brain | NEURO-004 | $1,500-$2,200 |
+| CT Head | NEURO-005 | $800-$1,200 |
+| Lumbar Puncture (Spinal Tap) | NEURO-006 | $1,000 |
+---
+## PRICING INFORMATION AND POLICIES
+### Self-Pay Discount
+Patients paying without insurance receive an automatic 30% discount from listed prices.
+### Payment Plans
+Interest-free payment plans available for procedures over $500. Contact Patient Financial Services: (555) 1
+### Insurance
+Most major insurance plans accepted. Actual out-of-pocket costs vary based on:
+- Deductible amount
+- Co-insurance percentage
+- Co-payment requirements
+- In-network vs. out-of-network status
+### Estimate Requests
+For accurate cost estimates based on your insurance:
+- Call: (555) 123-4570
+- Email: billing@hospital.org
+- Allow 3-5 business days for estimate
+### Pre-Authorization
+Some tests require insurance pre-authorization. Our staff will assist with this process.
+### Results Turnaround Time
+**Laboratory Tests:**
+- Routine: 24-48 hours
+- Specialized: 3-7 days
+- Genetic testing: 2-4 weeks
+**Imaging:**
+- X-Ray: Same day or next day
+- CT/MRI: 24-48 hours
+- Special studies: 2-3 days
+### Access to Results
+- Patient Portal: Available 24-48 hours after completion
+- By phone: Call (555) 123-4580
+- In-person: Medical Records Department
+---
+## CONTACT INFORMATION
+**Diagnostic Services Scheduling:**
+Phone: (555) 123-4580
+Fax: (555) 123-4581
+Email: diagnostics@hospital.org
+**Hours:**
+Monday-Friday: 7:00 AM - 6:00 PM
+Saturday: 8:00 AM - 2:00 PM
+Sunday: Closed (Emergency imaging available 24/7)
+**Location:**
+Diagnostic Center, 1st Floor, East Wing
+**Billing Questions:**
+Patient Financial Services: (555) 123-4570
+**Online:**
+www.hospital.org/diagnostics
