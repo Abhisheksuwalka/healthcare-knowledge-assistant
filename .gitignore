@@ -269,7 +269,7 @@ dist/
 
 # Gatsby
 .cache/
-public/
+# Note: Not ignoring public/ because React CRA needs it
 
 # ============= Vector Database =============
 # ChromaDB
