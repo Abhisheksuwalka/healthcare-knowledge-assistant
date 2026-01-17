@@ -1,9 +1,10 @@
-import React from 'react';
-import { FaUser, FaRobot, FaFileAlt, FaExclamationTriangle } from 'react-icons/fa';
+import { useState } from 'react';
+import { FaChevronDown, FaChevronRight, FaExclamationTriangle, FaFileAlt, FaRobot, FaUser } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 
 function Message({ message }) {
   const { sender, text, sources, disclaimer, isError, timestamp } = message;
+  const [sourcesOpen, setSourcesOpen] = useState(false);
 
   const formatTime = (date) => {
     return new Date(date).toLocaleTimeString('en-US', {
@@ -34,27 +35,34 @@ function Message({ message }) {
           <ReactMarkdown>{text}</ReactMarkdown>
         </div>
 
-        {/* Sources Section */}
+        {/* Sources Section - Collapsible Dropdown */}
         {sources && sources.length > 0 && (
           <div className="message-sources">
-            <div className="sources-header">
+            <button 
+              className="sources-toggle"
+              onClick={() => setSourcesOpen(!sourcesOpen)}
+            >
+              {sourcesOpen ? <FaChevronDown className="toggle-icon" /> : <FaChevronRight className="toggle-icon" />}
               <FaFileAlt className="sources-icon" />
               <span>Sources ({sources.length})</span>
-            </div>
-            <div className="sources-list">
-              {sources.map((source, index) => (
-                <div key={index} className="source-item">
-                  <div className="source-name">
-                    📄 {source.filename}
-                    <span className="source-chunk">Chunk {source.chunk_index}</span>
+            </button>
+            
+            {sourcesOpen && (
+              <div className="sources-list">
+                {sources.map((source, index) => (
+                  <div key={index} className="source-item">
+                    <div className="source-name">
+                      📄 {source.filename}
+                      <span className="source-chunk">Chunk {source.chunk_index}</span>
+                    </div>
+                    <div className="source-preview">{source.content_preview}</div>
+                    <div className="source-score">
+                      Relevance: {(source.relevance_score * 100).toFixed(0)}%
+                    </div>
                   </div>
-                  <div className="source-preview">{source.content_preview}</div>
-                  <div className="source-score">
-                    Relevance: {(source.relevance_score * 100).toFixed(0)}%
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 

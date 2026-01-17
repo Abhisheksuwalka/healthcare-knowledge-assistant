@@ -1,36 +1,5 @@
-# Core Python Version: 3.11.x ONLY
+# Healthcare Knowledge Assistant - Dependencies
+# Install with: pip install -r requirements.txt
 
-# Web Framework
-fastapi==0.115.0
-uvicorn[standard]==0.30.6
-python-multipart==0.0.9
-
-# Data Validation
-pydantic==2.9.2
-
-# LangChain Ecosystem
-langchain==0.3.7
-langchain-openai==0.2.5
-langchain-community==0.3.7
-langchain-text-splitters==0.3.2
-langchain-google-genai
-google-generativeai
-
-# Vector Database
-chromadb==0.5.11
-
-# OpenAI
-openai==1.54.3
-
-# Utilities
-python-dotenv==1.0.1
-tiktoken==0.8.0
-requests==2.32.3
-
-# Document Processing
-pypdf==5.0.1
-
-# Optional but recommended
-numpy==1.26.4
-
-ragas
+# Include all backend dependencies
+-r backend/requirements.txt

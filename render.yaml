@@ -1,0 +1,28 @@
+# Render.com deployment configuration
+# See: https://render.com/docs/yaml-spec
+
+services:
+  - type: web
+    name: healthcare-assistant-api
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      python -c "from backend.document_processor import document_processor; document_processor.ingest_documents(force_reindex=True)"
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: DEBUG_MODE
+        value: "false"
+      - key: CHROMA_PERSIST_DIRECTORY
+        value: ./vectordb/chroma_db
+      - key: DOCUMENTS_PATH
+        value: ./data/sample_docs
+    healthCheckPath: /health
+    autoDeploy: true

@@ -26,10 +26,20 @@ class Settings(BaseSettings):
         description="Gemini API key (required; get from https://aistudio.google.com/app/apikey)"
     )
     
+    # ===== Groq Settings (Fast Inference) =====
+    GROQ_API_KEY: Optional[str] = Field(
+        default=None,
+        description="Groq API key (get from https://console.groq.com/keys)"
+    )
+    GROQ_MODEL: str = Field(
+        default="llama-3.3-70b-versatile",
+        description="Groq model name (e.g., llama-3.3-70b-versatile, mixtral-8x7b-32768)"
+    )
+    
     # ===== OpenAI Settings (Fallback) =====
     OPENAI_API_KEY: Optional[str] = Field(
         default=None,
-        description="OpenAI API key (fallback if Gemini not configured)"
+        description="OpenAI API key (fallback if Gemini/Groq not configured)"
     )
     
     # ===== Application Settings =====
@@ -101,6 +111,15 @@ class Settings(BaseSettings):
         """
         return self.GEMINI_API_KEY is not None
     
+    def is_groq_configured(self) -> bool:
+        """
+        Check if Groq API is properly configured
+        
+        Returns:
+            True if Groq API key is set
+        """
+        return self.GROQ_API_KEY is not None
+    
     def is_openai_configured(self) -> bool:
         """
         Check if OpenAI is properly configured
@@ -114,17 +133,25 @@ class Settings(BaseSettings):
         """
         Get configuration for LLM client
         
+        Priority: Gemini > Groq > OpenAI
+        
         Returns:
             Dictionary with LLM configuration
             
         Raises:
-            ValueError: If neither Gemini nor OpenAI is configured
+            ValueError: If no LLM provider is configured
         """
         if self.is_gemini_configured():
             return {
                 "provider": "gemini",
                 "api_key": self.GEMINI_API_KEY,
                 "model": self.CHAT_MODEL
+            }
+        elif self.is_groq_configured():
+            return {
+                "provider": "groq",
+                "api_key": self.GROQ_API_KEY,
+                "model": self.GROQ_MODEL
             }
         elif self.is_openai_configured():
             return {
@@ -134,8 +161,8 @@ class Settings(BaseSettings):
             }
         else:
             raise ValueError(
-                "❌ Neither Gemini nor OpenAI is properly configured. "
-                "Please set GEMINI_API_KEY in .env file for primary support."
+                "❌ No LLM provider configured. "
+                "Please set GEMINI_API_KEY, GROQ_API_KEY, or OPENAI_API_KEY in .env file."
             )
     
     def get_embedding_config(self) -> dict:
@@ -171,8 +198,8 @@ class Settings(BaseSettings):
 settings = Settings()
 
 # Validate configuration on startup
-if not settings.is_gemini_configured() and not settings.is_openai_configured():
+if not settings.is_gemini_configured() and not settings.is_groq_configured() and not settings.is_openai_configured():
     raise ValueError(
         "❌ Application is not properly configured.\n"
-        "Please set GEMINI_API_KEY in your .env file for Gemini support."
+        "Please set GEMINI_API_KEY, GROQ_API_KEY, or OPENAI_API_KEY in your .env file."
     )

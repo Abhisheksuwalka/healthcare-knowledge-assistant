@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import Message from './Message';
-import { FaPaperPlane, FaRobot, FaSpinner } from 'react-icons/fa';
 import axios from 'axios';
+import { useEffect, useRef, useState } from 'react';
+import { FaPaperPlane, FaRobot, FaSpinner } from 'react-icons/fa';
+import Message from './Message';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
-function Chatbot({ userRole }) {
+function Chatbot({ userRole, pendingQuestion, onQuestionSent }) {
   const [messages, setMessages] = useState([
     {
       sender: 'bot',
@@ -25,24 +25,43 @@ function Chatbot({ userRole }) {
     scrollToBottom();
   }, [messages]);
 
-  const sendMessage = async () => {
-    if (!input.trim() || isLoading) return;
+  // Handle pending question from suggestions - just fill input, don't auto-send
+  useEffect(() => {
+    if (pendingQuestion) {
+      setInput(pendingQuestion);
+      onQuestionSent && onQuestionSent();
+    }
+  }, [pendingQuestion]);
+
+  const sendMessageWithText = async (text) => {
+    if (!text.trim() || isLoading) return;
 
     const userMessage = {
       sender: 'user',
-      text: input,
+      text: text,
       timestamp: new Date()
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
     setInput('');
     setIsLoading(true);
 
+    // Build chat history for context (exclude initial bot greeting, limit to recent messages)
+    const chatHistory = updatedMessages
+      .slice(1) // Skip the initial greeting
+      .slice(-10) // Last 10 messages max
+      .map(msg => ({
+        role: msg.sender === 'user' ? 'user' : 'assistant',
+        content: msg.text
+      }));
+
     try {
       const response = await axios.post(`${API_URL}/query`, {
-        question: input,
+        question: text,
         user_role: userRole,
-        include_sources: true
+        include_sources: true,
+        chat_history: chatHistory.length > 0 ? chatHistory : null
       });
 
       const botMessage = {
@@ -66,6 +85,10 @@ function Chatbot({ userRole }) {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const sendMessage = async () => {
+    await sendMessageWithText(input);
   };
 
   const handleKeyPress = (e) => {
@@ -98,7 +121,7 @@ function Chatbot({ userRole }) {
           </div>
         </div>
         <div className="chat-role-badge">
-          Role: {userRole.charAt(0).toUpperCase() + userRole.slice(1)}
+          {userRole.charAt(0).toUpperCase() + userRole.slice(1)}
         </div>
       </div>
 
@@ -156,7 +179,7 @@ function Chatbot({ userRole }) {
           </button>
         </div>
         <div className="input-hint">
-          Press Enter to send • Shift+Enter for new line
+          Press Enter to send
         </div>
       </div>
     </div>

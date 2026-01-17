@@ -10,6 +10,7 @@ from langchain_openai import ChatOpenAI, AzureChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from langchain.schema import Document
+from langchain_groq import ChatGroq
 
 from backend.config import settings
 from backend.document_processor import document_processor
@@ -117,7 +118,7 @@ This information is for general guidance only. For medical advice, diagnosis, or
         Initialize LLM based on configuration
         
         Returns:
-            Chat model instance (Gemini, AzureChatOpenAI, or ChatOpenAI)
+            Chat model instance (Gemini, Groq, AzureChatOpenAI, or ChatOpenAI)
         """
         llm_config = settings.get_llm_config()
         
@@ -128,6 +129,14 @@ This information is for general guidance only. For medical advice, diagnosis, or
                 model=llm_config["model"],
                 temperature=settings.LLM_TEMPERATURE,
                 max_output_tokens=settings.LLM_MAX_OUTPUT_TOKENS
+            )
+        elif llm_config["provider"] == "groq":
+            print("✓ Using Groq chat model...")
+            return ChatGroq(
+                api_key=llm_config["api_key"],
+                model=llm_config["model"],
+                temperature=settings.LLM_TEMPERATURE,
+                max_tokens=settings.LLM_MAX_TOKENS if hasattr(settings, 'LLM_MAX_TOKENS') else settings.LLM_MAX_OUTPUT_TOKENS
             )
         elif llm_config["provider"] == "azure":
             print("✓ Using Azure OpenAI chat model...")
@@ -181,88 +190,21 @@ DO NOT make up information not in the context."""
             template=template,
             input_variables=["context", "question"]
         )
-    
-    # def query(
-    #     self,
-    #     question: str,
-    #     user_role: UserRole = UserRole.GENERAL,
-    #     include_sources: bool = True
-    # ) -> Dict[str, Any]:
-    #     """
-    #     Process a question using RAG pipeline
-        
-    #     Args:
-    #         question: User question
-    #         user_role: User role for context-aware response
-    #         include_sources: Whether to include source documents
-        
-    #     Returns:
-    #         Dictionary with answer, sources, and metadata
-    #     """
-    #     start_time = time.time()
-    #     self.vectorstore = document_processor.get_vectorstore()
-    #     self.retriever = self.vectorstore.as_retriever(
-    #         search_kwargs={"k": settings.RETRIEVAL_TOP_K}
-    #     )
-        
-    #     # Create role-specific prompt
-    #     prompt_template = self._create_prompt_template(user_role)
-        
-    #     # Create retrieval chain
-    #     qa_chain = RetrievalQA.from_chain_type(
-    #         llm=self.llm,
-    #         chain_type="stuff",
-    #         retriever=self.retriever,
-    #         return_source_documents=include_sources,
-    #         chain_type_kwargs={"prompt": prompt_template}
-    #     )
-        
-    #     # Execute query
-    #     try:
-    #         result = qa_chain.invoke({"query": question})
-    #     except Exception as e:
-    #         return {
-    #             "question": question,
-    #             "answer": f"❌ Error processing query: {str(e)}",
-    #             "sources": [],
-    #             "user_role": user_role.value,
-    #             "disclaimer": self.DISCLAIMER,
-    #             "processing_time_seconds": round(time.time() - start_time, 2)
-    #         }
-        
-    #     # Process sources
-    #     sources = []
-    #     if include_sources and "source_documents" in result:
-    #         sources = self._process_sources(result["source_documents"])
-        
-    #     elapsed_time = time.time() - start_time
-        
-    #     return {
-    #         "question": question,
-    #         "answer": result["result"],
-    #         "sources": sources,
-    #         "user_role": user_role.value,
-    #         "disclaimer": self.DISCLAIMER,
-    #         "processing_time_seconds": round(elapsed_time, 2)
-    #     }
-    
-
-
-
-
     def query(
         self,
         question: str,
         user_role: UserRole = UserRole.GENERAL,
-        include_sources: bool = True
+        include_sources: bool = True,
+        chat_history: list = None
     ) -> Dict[str, Any]:
         """
-        Process a question using RAG pipeline with tool support
+        Process a question using RAG pipeline with tool support and conversation memory
         
         Args:
             question: User question
             user_role: User role for context-aware response
             include_sources: Whether to include source documents
+            chat_history: List of previous messages for context
         
         Returns:
             Dictionary with answer, sources, and metadata
@@ -314,6 +256,23 @@ When you use a tool, mention it in your response like:
                 f"{tool_info}\n===== RESPONSE ====="
             )
             prompt_template.template = original_template
+        
+        # Add conversation history to the template if provided
+        if chat_history and len(chat_history) > 0:
+            history_text = "\n===== CONVERSATION HISTORY =====\n"
+            # Limit to last 10 messages to avoid context overflow
+            recent_history = chat_history[-10:] if len(chat_history) > 10 else chat_history
+            for msg in recent_history:
+                role = msg.get("role", "user").capitalize()
+                content = msg.get("content", "")
+                history_text += f"{role}: {content}\n"
+            history_text += "===== END HISTORY =====\n\n"
+            
+            # Inject history before the user question
+            prompt_template.template = prompt_template.template.replace(
+                "===== USER QUESTION =====",
+                f"{history_text}===== USER QUESTION ====="
+            )
         
         # Create chain
         qa_chain = RetrievalQA.from_chain_type(

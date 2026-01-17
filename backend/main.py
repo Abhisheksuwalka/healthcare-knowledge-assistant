@@ -167,11 +167,16 @@ async def query_knowledge_base(request: QueryRequest):
                 detail="No documents ingested. Please call /ingest endpoint first."
             )
         
-        # Process query
+        # Process query with chat history for conversation memory
+        chat_history_data = None
+        if request.chat_history:
+            chat_history_data = [{"role": msg.role, "content": msg.content} for msg in request.chat_history]
+        
         result = rag_engine.query(
             question=request.question,
             user_role=request.user_role,
-            include_sources=request.include_sources
+            include_sources=request.include_sources,
+            chat_history=chat_history_data
         )
         
         return QueryResponse(**result)
@@ -196,10 +201,12 @@ async def get_statistics():
         
         if hasattr(settings, 'is_gemini_configured') and settings.is_gemini_configured():
             provider_str = "Gemini (Google AI)"
-        elif settings.is_azure_configured():
-            provider_str = "Azure OpenAI"
-        else:
+        elif hasattr(settings, 'is_groq_configured') and settings.is_groq_configured():
+            provider_str = "Groq"
+        elif settings.is_openai_configured():
             provider_str = "OpenAI"
+        else:
+            provider_str = "Unknown"
 
         return {
             "total_chunks": doc_count,

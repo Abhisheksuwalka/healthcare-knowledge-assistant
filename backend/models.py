@@ -49,6 +49,13 @@ class DocumentSource(BaseModel):
     relevance_score: float = Field(description="Relevance score (0-1)")
     content_preview: str = Field(description="Preview of chunk content (first 200 chars)")
 
+
+class ChatMessage(BaseModel):
+    """A single message in conversation history"""
+    role: str = Field(description="Message role: 'user' or 'assistant'")
+    content: str = Field(description="Message content")
+
+
 class QueryRequest(BaseModel):
     """Request body for knowledge base query"""
     question: str = Field(
@@ -65,6 +72,10 @@ class QueryRequest(BaseModel):
     include_sources: bool = Field(
         default=True,
         description="Whether to include source documents in response"
+    )
+    chat_history: Optional[List[ChatMessage]] = Field(
+        default=None,
+        description="Previous conversation messages for context"
     )
 
 # class QueryResponse(BaseModel):
